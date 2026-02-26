@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Tasks</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <div class="top-bar">
+    <div>
+      <h1>My Tasks</h1>
+      <p class="subtitle">Stay productive, <%= username %> 🚀</p>
+    </div>
+
+    <form action="/logout" method="POST">
+      <button type="submit" class="logout-btn">Logout</button>
+    </form>
+  </div>
+
+  <form action="/add" method="POST" class="add-task">
+    <input type="text" name="newItem" placeholder="Add a new task..." required>
+    <button type="submit">Add</button>
+  </form>
+
+  <ul class="task-list">
+    <% items.forEach(function(item){ %>
+      <li class="task-item">
+        <form action="/delete" method="POST">
+          <label class="task-label">
+            <input 
+              type="checkbox" 
+              name="checkbox" 
+              value="<%= item.id %>" 
+              onchange="this.form.submit()"
+            >
+            <span><%= item.name %></span>
+          </label>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+
+</div>
+
+</body>
+</html>

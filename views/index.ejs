@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="app">
+  <h1>Welcome Back 👋</h1>
+  <p class="subtitle">Login to manage your tasks</p>
+
+  <% if (query.q === "invalid") { %>
+    <p style="color:red;">Invalid username or password</p>
+  <% } %>
+
+  <form action="/login" method="POST">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+</div>
+
+</body>
+</html>
